@@ -1,56 +1,48 @@
 import styled from "styled-components";
+import Section from "./components/Section";
+import "./App.css"
 
 const Title = styled.h1`
   color: #b19cd9;
 `;
 
-const Section = styled.div`
-  background-color: #ffffff;
-  border: solid 3px grey;
-  margin: 4px;
-  width: 300px;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: left;
-  font-size: 40px;
-  color: #ff6961;
-`;
-
-const WeekdayTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 50px;
-  border-right: solid 3px lightgrey;
-`;
+const days = [
+  {
+    day: "M",
+    progress: 10,
+  },
+  {
+    day: "T",
+    progress: 9,
+  },
+  {
+    day: "W",
+    progress: 7,
+  },
+  {
+    day: "T",
+    progress: 6,
+  },
+  {
+    day: "F",
+    progress: 5,
+  },
+  {
+    day: "S",
+    progress: 4,
+  },
+  {
+    day: "S",
+    progress: 2,
+  },
+];
+const daysElem = days.map(day => <Section data={day}></Section>)
 
 function App() {
   return (
     <>
       <Title>Progress Tracker</Title>
-      <div>
-        <Section>
-          <WeekdayTitle>M</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>T</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>W</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>T</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>F</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>S</WeekdayTitle>
-        </Section>
-        <Section>
-          <WeekdayTitle>S</WeekdayTitle>
-        </Section>
-      </div>
+      {daysElem}
     </>
   );
 }
